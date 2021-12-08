@@ -4,13 +4,9 @@ pipeline {
         CI = 'true'
     }
      stages {
-        stage("Update") {
-            steps {
-                sh "sudo npm update"
-            }
-        }
         stage("Build") {
             steps {
+                sh "sudo npm update" 
                 sh "sudo npm install"
                 sh "sudo npm run build"
             }
