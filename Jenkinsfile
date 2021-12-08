@@ -1,9 +1,16 @@
 pipeline {
      agent any
+     environment { 
+        CI = 'true'
+    }
      stages {
-        stage("Build") {
+        stage("Update") {
             steps {
                 sh "sudo npm update"
+            }
+        }
+        stage("Build") {
+            steps {
                 sh "sudo npm install"
                 sh "sudo npm run build"
             }
